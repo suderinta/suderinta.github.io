@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://suderinta.github.io/sitemap.xml

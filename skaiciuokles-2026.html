@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 m. Lietuvos Verslo ir Mokesčių Skaičiuoklių Techninė Metodika | Suderinta.lt</title>
+  <meta name="description" content="2026 m. Lietuvos atlyginimo, NPD, GPM, Sodros, atostoginių (VDU), PVM ir individualios veiklos mokesčių skaičiavimo formulės bei atviro kodo įrankiai." />
+  <link rel="canonical" href="https://suderinta.github.io/skaiciuokles-2026.html" />
+  <style>
+    :root { --bg: #09090b; --card: #18181b; --border: #27272a; --text: #f4f4f5; --muted: #a1a1aa; --accent: #10b981; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; padding: 2rem 1.25rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    nav { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+    nav a { color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 8px; border: 1px solid var(--border); }
+    nav a:hover, nav a.active { color: var(--accent); border-color: var(--accent); }
+    header { padding-bottom: 1.75rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .badge { display: inline-block; background: rgba(16, 185, 129, 0.12); color: var(--accent); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.75rem; }
+    h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 1rem; color: #fff; }
+    h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--accent); }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    pre { background: #121215; border: 1px solid var(--border); border-radius: 10px; padding: 1rem; overflow-x: auto; font-size: 0.82rem; color: #d4d4d8; margin: 1rem 0; }
+    ul { padding-left: 1.25rem; color: var(--muted); margin-bottom: 1rem; }
+    li { margin-bottom: 0.45rem; }
+    .cta { background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(24,24,27,0.95)); border: 1px solid rgba(16,185,129,0.35); border-radius: 14px; padding: 1.5rem; margin-top: 2.5rem; }
+    .btn { display: inline-block; background: var(--accent); color: #052e16; font-weight: 700; padding: 0.65rem 1.25rem; border-radius: 8px; margin-top: 0.5rem; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="container">
+    
+    <nav>
+      <a href="https://suderinta.github.io/">Pagrindinis (Hub)</a>
+      <a href="https://suderinta.github.io/skaiciuokles-2026.html">2026 m. Skaičiuoklių Metodika</a>
+      <a href="https://suderinta.github.io/rivile-integracija.html">Rivilė API &amp; i.SAF Integracija</a>
+      <a href="https://suderinta.github.io/ecmr-ivaz-architektura.html">e-CMR, i.VAZ &amp; ERP Architektūra</a>
+      <a href="https://suderinta.github.io/rivile-api-client/">Rivilė SDK</a>
+      <a href="https://suderinta.github.io/lithuanian-company-validator/">JAR / PVM Validator SDK</a>
+      <a href="https://www.suderinta.lt">Suderinta.lt ↗</a>
+    </nav>
+
+    <header>
+      <span class="badge">2026 m. LR GPMĮ, VSDĮ ir Darbo Kodekso Metodika</span>
+      <h1>2026 m. Lietuvos Verslo ir Mokesčių Skaičiuoklių Formulės</h1>
+      <p>Atvira techninė dokumentacija buhalteriams, finansų vadovams ir programuotojams, diegiantiems 2026 m. darbo užmokesčio, VDU, PVM ir individualios veiklos skaičiavimus.</p>
+    </header>
+
+    <h2>1. Oficialios 2026 m. interaktyvios skaičiuoklės (Suderinta.lt)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Atlyginimo ir Mokesčių Skaičiuoklė 2026</h3>
+        <p>Bruto ↔ Neto konvertavimas, 2026 m. NPD formulė (MMA 1 038 €, maks. NPD 747 €), GPM 20%/32%, PSD 6.98%, VSD 12.52% ir darbo vietos kaina.</p>
+        <a href="https://www.suderinta.lt/skaiciuokles/atlyginimo-ir-mokesciu-skaiciuokle">Atidaryti Atlyginimo Skaičiuoklę →</a>
+      </div>
+      <div class="card">
+        <h3>Atostoginių ir VDU Skaičiuoklė 2026</h3>
+        <p>3 paskutinių mėnesių vidutinio darbo užmokesčio (VDU) skaičiavimas pagal LR Darbo kodekso 130 str. su MMA dienos garantija.</p>
+        <a href="https://www.suderinta.lt/skaiciuokles/atostoginiu-skaiciuokle">Atidaryti Atostoginių Skaičiuoklę →</a>
+      </div>
+      <div class="card">
+        <h3>Darbo Dienų Kalendorius 2026</h3>
+        <p>2026 m. mėnesių ir ketvirčių darbo dienų, valandų normų (5 d. d. ir 6 d. d. savaitėms) bei valstybinių švenčių suvestinė.</p>
+        <a href="https://www.suderinta.lt/skaiciuokles/darbo-dienu-kalendorius-2026">Atidaryti 2026 m. Kalendorių →</a>
+      </div>
+      <div class="card">
+        <h3>PVM Skaičiuoklė (21%, 9%, 5%) + Suma Žodžiais</h3>
+        <p>PVM priskaičiavimas ir išskaičiavimas, automatinis sumos žodžiais generavimas sąskaitoms-faktūroms ir VMI i.SAF kodai.</p>
+        <a href="https://www.suderinta.lt/skaiciuokles/pvm-skaiciuokle">Atidaryti PVM Skaičiuoklę →</a>
+      </div>
+      <div class="card">
+        <h3>Individualios Veiklos Skaičiuoklė 2026</h3>
+        <p>30% prezumpcinių arba faktinių sąnaudų atskaitymas, GPM mokesčio kreditas (5%–15%), PSD ir VSD įmokos nuo 90% bazės.</p>
+        <a href="https://www.suderinta.lt/skaiciuokles/individualios-veiklos-skaiciuokle">Atidaryti IV Skaičiuoklę →</a>
+      </div>
+      <div class="card">
+        <h3>Visų 2026 m. skaičiuoklių centras</h3>
+        <p>Atsisiųskite nemokamus 2026 m. Excel (.xlsx / .csv) apskaitos žurnalus ir skaičiuoklių šablonus.</p>
+        <a href="https://www.suderinta.lt/skaiciuokles">Visos Suderinta.lt Skaičiuoklės →</a>
+      </div>
+    </div>
+
+    <h2>2. Atviro kodo skaičiavimo šablonai (GitHub Gists)</h2>
+    <ul>
+      <li><a href="https://gist.github.com/jjonasjj/a67dd2b517a89cff73eb2c95dd6cb00d">2026 m. Atlyginimo ir NPD skaičiavimo TypeScript funkcija (Gist)</a></li>
+      <li><a href="https://gist.github.com/jjonasjj/fc71e1e7b4d70e7d73239ec49437bde4">2026 m. Atostoginių ir 3 mėn. VDU skaičiavimo metodika pagal DK 130 str. (Gist)</a></li>
+      <li><a href="https://gist.github.com/jjonasjj/d9b4916ba08cea1aca8fb11389b8bbca">2026 m. Individualios veiklos GPM kredito ir Sodros formulės (Gist)</a></li>
+    </ul>
+
+    <h2>3. Interaktyvus 2026 m. Atlyginimo Skaičiuoklės Valdiklis (Live Embed)</h2>
+    <iframe src="https://www.suderinta.lt/embed/atlyginimo-ir-mokesciu-skaiciuokle" width="100%" height="720" style="border:1px solid #27272a;border-radius:16px;background:#09090b;" loading="lazy" title="Atlyginimo ir Mokesčių Skaičiuoklė 2026"></iframe>
+
+    <div class="cta">
+      <h3>Automatizuokite darbo užmokesčio, sąskaitų ir Rivilė apskaitos procesus</h3>
+      <p>Suderinta.lt kuria individualias B2B sistemas, kurios sujungia CRM, sandėlį ir buhalteriją be rankinio Excel failų kopijavimo.</p>
+      <a class="btn" href="https://www.suderinta.lt/forma">Nemokamas 30 min. IT sistemų auditas →</a>
+    </div>
+
+    <footer>
+      © 2026 <a href="https://www.suderinta.lt">Suderinta.lt</a> – B2B Verslo Sistemų ir Procesų Automatizavimo Inžinerija.
+    </footer>
+  </div>
+</body>
+</html>

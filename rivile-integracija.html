@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rivilė GAMA / ERP REST API ir VMI i.SAF Integracijos Architektūra | Suderinta.lt</title>
+  <meta name="description" content="Techninis vadovas, kaip sujungti Rivilė GAMA / ERP su individualia CRM sistema, B2B klientų savitarnos portalu ir VMI i.SAF / i.VAZ registrais." />
+  <link rel="canonical" href="https://suderinta.github.io/rivile-integracija.html" />
+  <style>
+    :root { --bg: #09090b; --card: #18181b; --border: #27272a; --text: #f4f4f5; --muted: #a1a1aa; --accent: #10b981; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; padding: 2rem 1.25rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    nav { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+    nav a { color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 8px; border: 1px solid var(--border); }
+    nav a:hover, nav a.active { color: var(--accent); border-color: var(--accent); }
+    header { padding-bottom: 1.75rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .badge { display: inline-block; background: rgba(16, 185, 129, 0.12); color: var(--accent); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.75rem; }
+    h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 1rem; color: #fff; }
+    h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--accent); }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    pre { background: #121215; border: 1px solid var(--border); border-radius: 10px; padding: 1rem; overflow-x: auto; font-size: 0.82rem; color: #d4d4d8; margin: 1rem 0; }
+    ul { padding-left: 1.25rem; color: var(--muted); margin-bottom: 1rem; }
+    li { margin-bottom: 0.45rem; }
+    .cta { background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(24,24,27,0.95)); border: 1px solid rgba(16,185,129,0.35); border-radius: 14px; padding: 1.5rem; margin-top: 2.5rem; }
+    .btn { display: inline-block; background: var(--accent); color: #052e16; font-weight: 700; padding: 0.65rem 1.25rem; border-radius: 8px; margin-top: 0.5rem; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="container">
+    
+    <nav>
+      <a href="https://suderinta.github.io/">Pagrindinis (Hub)</a>
+      <a href="https://suderinta.github.io/skaiciuokles-2026.html">2026 m. Skaičiuoklių Metodika</a>
+      <a href="https://suderinta.github.io/rivile-integracija.html">Rivilė API &amp; i.SAF Integracija</a>
+      <a href="https://suderinta.github.io/ecmr-ivaz-architektura.html">e-CMR, i.VAZ &amp; ERP Architektūra</a>
+      <a href="https://suderinta.github.io/rivile-api-client/">Rivilė SDK</a>
+      <a href="https://suderinta.github.io/lithuanian-company-validator/">JAR / PVM Validator SDK</a>
+      <a href="https://www.suderinta.lt">Suderinta.lt ↗</a>
+    </nav>
+
+    <header>
+      <span class="badge">ERP &amp; Buhalterijos API Integracija</span>
+      <h1>Rivilė GAMA / ERP REST API ir VMI i.SAF Sinchronizavimas</h1>
+      <p>Architektūrinis gidas Lietuvos prekybos, gamybos ir paslaugų įmonėms, jungiančioms CRM bei B2B savitarnos portalus su Rivilė GAMA, Rivilė ERP, Directo ar Finvalda.</p>
+    </header>
+
+    <h2>1. Pagrindiniai Rivilė API sinchronizavimo srautai</h2>
+    <ul>
+      <li><strong>Klientų kortelės (`N08`):</strong> Automatinė Lietuvos įmonės kodo (9 skaitmenų JAR) ir PVM kodo validacija per <a href="https://suderinta.github.io/lithuanian-company-validator/">lithuanian-company-validator</a> prieš sukuriant klientą Rivilėje.</li>
+      <li><strong>Pardavimo dokumentai (`I06` / `I07`):</strong> PVM sąskaitų-faktūrų ir išankstinių sąskaitų generavimas realiu laiku per <a href="https://suderinta.github.io/rivile-api-client/">rivile-api-client</a> SDK.</li>
+      <li><strong>Atsargų likučiai (`I17`) ir Skolos (`I44`):</strong> Dvipusis prekių likučių ir klientų kredito limitų atvaizdavimas <a href="https://www.suderinta.lt/sprendimai/klientu-savitarnos-portalai">B2B klientų savitarnos portale</a>.</li>
+    </ul>
+
+    <h2>2. Išsamūs techniniai gidai ir sprendimai (Suderinta.lt)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>CRM integracija su Rivilė ir i.MAS</h3>
+        <p>Kaip sujungti pardavimus ir buhalteriją be rankinio duomenų suvedimo (i.SAF ir i.VAZ automatizavimas).</p>
+        <a href="https://www.suderinta.lt/blog/crm-integracija-su-rivile-ir-imas">Skaityti pilną vadovą →</a>
+      </div>
+      <div class="card">
+        <h3>Individuali CRM sistema</h3>
+        <p>Pardavimų, pasiūlymų ir sutarčių valdymo sistema, pritaikyta jūsų įmonės procesams be mėnesinio mokesčio už vartotoją.</p>
+        <a href="https://www.suderinta.lt/lp/crm-sistema">Sužinoti apie CRM kūrimą →</a>
+      </div>
+      <div class="card">
+        <h3>Didmeninės prekybos B2B sistemos</h3>
+        <p>Individualūs kainynai, maržų kontrolė, sandėlio rezervavimas ir automatinis sąskaitų išrašymas.</p>
+        <a href="https://www.suderinta.lt/sprendimai/didmeninei-prekybai">Sprendimai didmeninei prekybai →</a>
+      </div>
+      <div class="card">
+        <h3>Verslo procesų automatizavimas</h3>
+        <p>Atsisakykite išsibarsčiusių Excel lentelių ir sujunkite el. paštą, CRM, sandėlį bei apskaitą į vieną sistemą.</p>
+        <a href="https://www.suderinta.lt/lp/procesu-automatizavimas">Procesų automatizavimo paslaugos →</a>
+      </div>
+    </div>
+
+    <h2>3. Susiję straipsniai</h2>
+    <ul>
+      <li><a href="https://www.suderinta.lt/blog/kaip-automatizuoti-saskaitu-fakturu-israsyma">Kaip automatizuoti sąskaitų-faktūrų išrašymą ir i.SAF eksportą?</a></li>
+      <li><a href="https://www.suderinta.lt/blog/excel-alternatyvos-verslo-valdymui">Excel alternatyvos verslo valdymui: kada verta pereiti prie nuosavos sistemos?</a></li>
+      <li><a href="https://gist.github.com/jjonasjj/5946786928961019104bf93488c9f547">Rivilė GAMA REST API ir i.SAF PVM kodų atmintinė (GitHub Gist)</a></li>
+    </ul>
+
+    <div class="cta">
+      <h3>Reikia Rivilė, Directo ar Finvalda integracijos?</h3>
+      <p>Atliekame nemokamą 30 min. techninį esamų sistemų auditą ir per 24 val. pateikiame fiksuotos apimties architektūros planą.</p>
+      <a class="btn" href="https://www.suderinta.lt/forma">Rezervuoti nemokamą sistemų auditą →</a>
+    </div>
+
+    <footer>
+      © 2026 <a href="https://www.suderinta.lt">Suderinta.lt</a> – B2B Verslo Sistemų ir Procesų Automatizavimo Inžinerija.
+    </footer>
+  </div>
+</body>
+</html>
