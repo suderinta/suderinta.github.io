@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suderinta Engineering & Open-Source SDK Portalas | Suderinta.lt</title>
+  <meta name="description" content="Oficialus Suderinta.lt inžinerijos, atvirojo kodo bibliotekų (Rivilė REST API, Lietuvos įmonių ir PVM kodų validavimo) bei B2B architektūros dokumentacijos portalas." />
+  <link rel="canonical" href="https://suderinta.github.io/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Suderinta",
+    "url": "https://www.suderinta.lt",
+    "sameAs": [
+      "https://github.com/suderinta",
+      "https://suderinta.github.io/"
+    ],
+    "description": "Individualios programinės įrangos, CRM, VVS/ERP sistemų kūrimas ir procesų automatizavimas Lietuvos verslui."
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #09090b;
+      --card: #18181b;
+      --border: #27272a;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 1rem; color: #fff; }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff; }
+    .card p { font-size: 0.9rem; margin-bottom: 1rem; }
+    ul.links { list-style: none; }
+    ul.links li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    ul.links li:last-child { border-bottom: none; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(20,184,166,0.05));
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #09090b;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      margin-top: 0.75rem;
+    }
+    .btn:hover { text-decoration: none; opacity: 0.95; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Suderinta.lt Open-Source & Inžinerija</span>
+      <h1>Suderinta IT Architektūros ir Atvirojo Kodo Portalas</h1>
+      <p>
+        Oficialus <a href="https://www.suderinta.lt">Suderinta.lt</a> inžinerijos komandos techninis portalas. Kuriame individualias B2B sistemas, specializuotus CRM ir ERP modulius bei realaus laiko integracijas su Lietuvos apskaitos bei valstybinėmis sistemomis (Rivilė GAMA, Directo, Finvalda, VMI i.MAS, i.VAZ / e-CMR).
+      </p>
+    </header>
+
+    <section>
+      <h2>1. Atvirojo kodo bibliotekos (GitHub & NPM SDK)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>@suderintalt/rivile-api-client</h3>
+          <p>Pilnai tipizuotas TypeScript REST API klientas Rivilė GAMA ir Rivilė ERP sistemoms: klientų paieška, PVM sąskaitų generavimas ir sandėlio likučių sinchronizavimas.</p>
+          <a href="https://github.com/suderinta/rivile-api-client">GitHub Repozitorija →</a>
+        </div>
+        <div class="card">
+          <h3>lithuanian-company-validator</h3>
+          <p>Lietuvos juridinių asmenų (JAR įmonės kodo pagal Modulus-11 algoritmą) ir PVM mokėtojo kodų validavimo biblioteka be išorinių priklausomybių.</p>
+          <a href="https://github.com/suderinta/lithuanian-company-validator">GitHub Repozitorija →</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. B2B Sistemų Architektūra ir Pagrindinės Kryptys</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Verslo ir Procesų Sistemos</h3>
+          <ul class="links">
+            <li><a href="https://www.suderinta.lt/lp/crm-sistema">Individuali CRM sistema verslui</a></li>
+            <li><a href="https://www.suderinta.lt/lp/verslo-valdymo-sistemos">Verslo valdymo sistemos (VVS / ERP)</a></li>
+            <li><a href="https://www.suderinta.lt/lp/procesu-automatizavimas">Verslo procesų automatizavimas</a></li>
+            <li><a href="https://www.suderinta.lt/lp/programavimo-paslaugos">Programavimo paslaugos fiksuota kaina</a></li>
+            <li><a href="https://www.suderinta.lt/lp/es-parama-skaitmeninimui">ES parama verslo skaitmeninimui (iki 70%)</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Sprendimai Pagal Industriją</h3>
+          <ul class="links">
+            <li><a href="https://www.suderinta.lt/sprendimai/logistikai-ir-transportui">Logistikai ir transportui (TMS, e-CMR, i.VAZ)</a></li>
+            <li><a href="https://www.suderinta.lt/sprendimai/gamybos-imonems">Gamybos įmonėms (MES, savikaina realiu laiku)</a></li>
+            <li><a href="https://www.suderinta.lt/sprendimai/didmeninei-prekybai">Didmeninei prekybai ir distribucijai</a></li>
+            <li><a href="https://www.suderinta.lt/sprendimai/klientu-savitarnos-portalai">B2B klientų savitarnos portalai</a></li>
+            <li><a href="https://www.suderinta.lt/sprendimai/statybos-imonems">Statybos ir inžinerinėms įmonėms</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Nemokamos Verslo ir Buhalterinės Skaičiuoklės (2026 m.)</h2>
+      <div class="card">
+        <ul class="links">
+          <li><a href="https://www.suderinta.lt/skaiciuokles/atlyginimo-ir-mokesciu-skaiciuokle">Atlyginimo ir mokesčių skaičiuoklė 2026 („ant popieriaus“ / „į rankas“, NPD, Sodra)</a></li>
+          <li><a href="https://www.suderinta.lt/skaiciuokles/atostoginiu-skaiciuokle">Atostoginių skaičiuoklė 2026 (VDU skaičiavimas pagal LR DK 130 str.)</a></li>
+          <li><a href="https://www.suderinta.lt/skaiciuokles/pvm-skaiciuokle">PVM skaičiuoklė (21%, 9%, 5% ir sumos žodžiais PVM sąskaitoms-faktūroms)</a></li>
+          <li><a href="https://www.suderinta.lt/skaiciuokles/individualios-veiklos-skaiciuokle">Individualios veiklos mokesčių skaičiuoklė 2026 (GPM, VSD, PSD, 30% sąnaudos)</a></li>
+          <li><a href="https://www.suderinta.lt/skaiciuokles/darbo-dienu-kalendorius-2026">Darbo dienų ir valandų kalendorius 2026 m.</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Techniniai Gidai ir Sistemų Palyginimai</h2>
+      <div class="card">
+        <ul class="links">
+          <li><a href="https://www.suderinta.lt/blog/crm-integracija-su-rivile-ir-imas">CRM integracija su Rivilė GAMA ir VMI i.MAS: pilnas techninis gidas</a></li>
+          <li><a href="https://www.suderinta.lt/blog/crm-sistema-transporto-ir-logistikos-imonems">Transporto ir logistikos CRM: krovinių, vilkikų ir maršrutų valdymas</a></li>
+          <li><a href="https://www.suderinta.lt/blog/individualios-programines-irangos-kurimas-5-metu-tco">Individualios programinės įrangos kūrimas: 5 metų TCO analizė</a></li>
+          <li><a href="https://www.suderinta.lt/palyginimas/individuali-crm-vs-hanna-crm">Palyginimas: Individuali CRM sistema vs Hanna CRM</a></li>
+          <li><a href="https://www.suderinta.lt/palyginimas/nuosava-programine-iranga-vs-saas-licencijos">Nuosava programinė įranga vs Mėnesinės SaaS licencijos</a></li>
+          <li><a href="https://www.suderinta.lt/palyginimas/dvs-dokumentu-valdymas-vs-doclogix">Individualus dokumentų valdymas (DVS) vs DocLogix</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <h2>Rezervuokite 30 min. IT Sistemų Architektūros Auditą</h2>
+      <p>Aptarkite savo įmonės procesus su vyr. sistemų architektu. Per 24 valandas paruošime vizualų duomenų srautų planą ir fiksuotos apimties sąmatą.</p>
+      <a class="btn" href="https://www.suderinta.lt/forma">Rezervuoti nemokamą auditą →</a>
+    </div>
+
+    <footer>
+      <div>© 2026 <a href="https://www.suderinta.lt">Suderinta.lt</a> — Individuali programinė įranga Lietuvos verslui</div>
+      <div>
+        <a href="https://www.suderinta.lt/apie-mus">Apie mus</a> •
+        <a href="https://www.suderinta.lt/blog">Techninis blogas</a> •
+        <a href="https://www.suderinta.lt/kontaktai">Kontaktai</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
